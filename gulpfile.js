@@ -13,26 +13,26 @@ gulp.task("hello", function (done) {
 gulp.task("browser-sync", function () {
   browserSync.init({
     server: {
-      baseDir: "./",
+      baseDir: "./src",
     },
   });
-  gulp.watch("./*.html").on("change", browserSync.reload);
+  gulp.watch("src/*.html").on("change", browserSync.reload);
 });
 
 gulp.task("minify-css", () => {
   return gulp
-    .src("css/*.css")
+    .src("dist/css/*.css")
     .pipe(
       cleanCSS({
         compatibility: "ie8",
       })
     )
-    .pipe(gulp.dest("distr"));
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task("minify-css", () => {
   return gulp
-    .src("css/*.css")
+    .src("src/css/*.css")
     .pipe(
       cleanCSS({
           debug: true,
@@ -49,7 +49,7 @@ gulp.task("minify-css", () => {
 //.min-css
 gulp.task("mincss", function () {
   gulp
-    .src("css/*.css")
+    .src("src/css/*.css")
     .pipe(cssmin())
     .pipe(rename({
       suffix: ".min"
