@@ -27,7 +27,7 @@ gulp.task("minify-css", () => {
         compatibility: "ie8",
       })
     )
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest("distr"));
 });
 
 gulp.task("minify-css", () => {
